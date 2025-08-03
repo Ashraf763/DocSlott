@@ -45,7 +45,7 @@ const DoctorProfile = () => {
     };
 
     fetchDoctor();
-  }, []);
+  }, [id]);
 
   const handleBooking = () => {
     if (date === "") {
