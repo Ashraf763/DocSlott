@@ -95,9 +95,9 @@ const Home = () => {
 
                 <div className="book-btn-container">
                   <p className="status">{doctor.status}</p>
-                  <a href={`/doctor/${doctor._id}`} className="btn btn-blue">
+                  <Link to={`/doctor/${doctor._id}`} className="btn btn-blue">
                     View Profile
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
