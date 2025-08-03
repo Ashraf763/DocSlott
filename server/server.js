@@ -13,6 +13,10 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 const doctorRoutes = require("./routes/doctorRoutes");
 app.use("/doctor", doctorRoutes);
 
