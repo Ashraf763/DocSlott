@@ -13,12 +13,12 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
+const doctorRoutes = require("./routes/doctorRoutes");
+app.use("/doctor", doctorRoutes);
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-
-const doctorRoutes = require("./routes/doctorRoutes");
-app.use("/doctor", doctorRoutes);
 
 app.listen(5000, () => {
   console.log("Server running on port: 5000");
