@@ -6,7 +6,7 @@ const doctor = {
   id: 10,
   name: "Dr. Alice Smith",
   specialization: "Cardiologist",
-  image: "/images/alice.jpg",
+  image: "/def-image.png",
   availability: "Available Today",
   schedule: ["2025-08-02T10:00", "2025-08-02T14:00"],
 };
