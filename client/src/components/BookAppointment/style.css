@@ -1,0 +1,123 @@
+.text-center {
+  text-align: center;
+}
+
+.box-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.app-header .logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.container {
+  margin: auto;
+  padding: 20px;
+}
+
+.doctor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.doctor-card,
+.form,
+.confirmation {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.confimation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation {
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  padding: 16px 25px;
+}
+
+.svg {
+  height: 40px;
+  width: 40px;
+  margin-right: 6px;
+}
+
+.form {
+  width: 700px;
+  margin-top: 25px;
+
+  @media (max-width: 767px) {
+    width: 95%;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.doctor-img,
+.doctor-img-large {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.doctor-img-large {
+  max-width: 300px;
+}
+
+.btn {
+  display: inline-block;
+  /* background: #007bff; */
+  color: white;
+  padding: 8px 12px;
+  margin-top: 10px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+form {
+  input[type="text"],
+  input[type="email"],
+  input[type="datetime-local"] {
+    width: 95%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+}
+
+button.btn {
+  cursor: pointer;
+  border: none;
+  margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .doctor-img-large {
+    width: 100%;
+  }
+}

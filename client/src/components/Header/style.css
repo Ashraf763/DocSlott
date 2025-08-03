@@ -1,0 +1,42 @@
+.nav-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background-color: #199fd9;
+}
+
+.nav-main {
+  width: min(1200px, 90%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  color: white;
+
+  p:hover {
+    /* text-decoration: underline; */
+    text-shadow: 0 1px 4px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.nav-h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}

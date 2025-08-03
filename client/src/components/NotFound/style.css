@@ -1,0 +1,25 @@
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-img {
+  width: 40%;
+
+  @media (max-width: 767px) {
+    width: 70%;
+  }
+}
+
+.failure-heading {
+  font-size: 24px;
+  font-family: "Roboto";
+  margin-top: 50px;
+}
+
+.failure-p {
+  text-align: center;
+  margin-top: 0;
+}
