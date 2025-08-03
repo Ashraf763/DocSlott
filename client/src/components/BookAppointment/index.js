@@ -2,22 +2,21 @@ import { useState } from "react";
 import "./style.css";
 import { useLocation } from "react-router-dom";
 
-const doctor = {
-  id: 10,
-  name: "Dr. Alice Smith",
-  specialization: "Cardiologist",
-  image: "/def-image.png",
-  availability: "Available Today",
-  schedule: ["2025-08-02T10:00", "2025-08-02T14:00"],
-};
+// const doctor = {
+//   id: 10,
+//   name: "Dr. Alice Smith",
+//   specialization: "Cardiologist",
+//   image: "/def-image.png",
+//   availability: "Available Today",
+//   schedule: ["2025-08-02T10:00", "2025-08-02T14:00"],
+// };
 
 const BookAppointment = () => {
   const [form, setForm] = useState({ name: "", email: "", datetime: "" });
   const [submitted, setSubmitted] = useState(false);
-  //   const { id } = useParams();
 
   const location = useLocation();
-  const date = location.state;
+  const { date, name } = location.state;
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -45,7 +44,7 @@ const BookAppointment = () => {
 
   return (
     <div className="container box-center col">
-      <h2 className="text-center">Book Appointment with {doctor.name}</h2>
+      <h2 className="text-center">Book Appointment with {name}</h2>
 
       <form onSubmit={handleSubmit} className="form" id="bookApointment">
         <input

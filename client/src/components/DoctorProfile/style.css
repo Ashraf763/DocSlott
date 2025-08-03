@@ -74,3 +74,14 @@
 .green {
   color: green;
 }
+
+.flex-cen {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found {
+  text-align: center;
+}
