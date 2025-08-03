@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // const doctorsData = [
 //   {
@@ -41,6 +42,8 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [doctorsData, setDoctorsData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDoctorsData = async () => {
@@ -95,9 +98,16 @@ const Home = () => {
 
                 <div className="book-btn-container">
                   <p className="status">{doctor.status}</p>
-                  <Link to={`/doctor/${doctor._id}`} className="btn btn-blue">
+                  {/* <Link to={`/doctor/${doctor._id}`} className="link">
+                    <p className="btn btn-blue">View Profile</p>
+                  </Link> */}
+                  <button
+                    type="button"
+                    className="btn btn-blue"
+                    onClick={() => navigate(`/doctor/${doctor._id}`)}
+                  >
                     View Profile
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
