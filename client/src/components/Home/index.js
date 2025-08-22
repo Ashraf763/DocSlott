@@ -3,38 +3,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-// const doctorsData = [
-//   {
-//     id: 1,
-//     name: "Dr. John Smith",
-//     specialization: "Cardiology",
-//     image: "/def-image.png",
-//     status: "Available Today",
-//     details: "Experienced cardiologist with over 15 years in heart care.",
-//     qualifiction: "BDS, MDS - Prosthodontics",
-//     experience: "29 years experience overall",
-//     fee: "500 Consultation fee at clinic",
-//     clinic: "Infinit Dental Solutions",
-//     schedule: [
-//       { date: "2025-08-02", times: ["09:00", "10:00", "11:00"] },
-//       { date: "2025-08-03", times: ["14:00", "15:00"] },
-//     ],
-//   },
-//   {
-//     id: 2,
-//     name: "Dr. Emily Johnson",
-//     specialization: "Pediatrics",
-//     image: "/def-image.png",
-//     status: "Fully Booked",
-//     qualifiction: "MBBS, AFIH, Advanced certificate in critical care medicine",
-//     experience: "29 years experience overall",
-//     details: "Pediatrician specializing in child health and development.",
-//     fee: "500 Consultation fee at clinic",
-//     clinic: "Infinit Dental Solutions",
-//     schedule: [],
-//   }
-// ];
+import LoadingView from "../LoadingView";
 
 const API_URL = process.env.REACT_APP_API_URI;
 
@@ -131,7 +100,7 @@ const Home = () => {
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <LoadingView />
       ) : doctorsData ? (
         renderAllDoctors()
       ) : (

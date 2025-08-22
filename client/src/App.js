@@ -17,22 +17,8 @@ function App() {
         <Header />
 
         <Routes>
-          <Route
-            path="/"
-            element={
-              <MotionWrapper>
-                <Home />
-              </MotionWrapper>
-            }
-          />
-          <Route
-            path="/doctor/:id"
-            element={
-              <MotionWrapper>
-                <DoctorProfile />
-              </MotionWrapper>
-            }
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/doctor/:id" element={<DoctorProfile />} />
           <Route
             path="/book/:id"
             element={

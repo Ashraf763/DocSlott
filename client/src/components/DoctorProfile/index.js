@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import LoadingView from "../LoadingView";
 
 // const doctor = {
 //   id: 11,
@@ -141,7 +142,7 @@ const DoctorProfile = () => {
   return (
     <>
       {isLoading ? (
-        <p>loading...</p>
+        <LoadingView />
       ) : doctor ? (
         renderDoctorDetails()
       ) : (
