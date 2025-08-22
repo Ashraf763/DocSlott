@@ -1,113 +1,46 @@
-import { useEffect, useState } from "react";
+import { FiSearch, FiClock, FiPlusCircle } from "react-icons/fi";
+import { MdOutlineVerifiedUser, MdLockOutline } from "react-icons/md";
 import "./style.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import LoadingView from "../LoadingView";
 
-const API_URL = process.env.REACT_APP_API_URI;
+const Home = () => (
+  <div className="container center">
+    <div className="home-container">
+      <h1>Find Trusted Doctors.</h1>
+      <h1>Book Appointments Instantly.</h1>
 
-const Home = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [doctorsData, setDoctorsData] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+      <p className="home-description">
+        Our platform connects patients with verified healthcare professionals
+        across multiple specialities. Search, view profiles, and book
+        appointments with ease, all in one place. Your health, our priority.
+      </p>
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchDoctorsData = async () => {
-      try {
-        const response = await axios.get(`${API_URL}`);
-        setDoctorsData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchDoctorsData();
-  }, []);
-
-  const renderAllDoctors = () => {
-    const filteredDoctors = doctorsData.filter(
-      (doctor) =>
-        doctor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        doctor.specialization.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    return (
-      <div className="container">
-        <h1>Find a Doctor</h1>
-        <input
-          type="text"
-          placeholder="Search by name or specialization..."
-          className="search-input-home"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-
-        <div className="doctor-grid">
-          {filteredDoctors.map((doctor) => (
-            <div key={doctor._id} className="doc-card">
-              <div className="flex-around">
-                <div className="flex">
-                  <img src={doctor.image} alt={doctor.name} />
-
-                  <div className="doc-details">
-                    <Link to={`/doctor/${doctor._id}`} className="link">
-                      <h2 className="doc-name">{doctor.name}</h2>
-                    </Link>
-                    <p className="each-details">{doctor.specialization}</p>
-                    <p className="each-details">{doctor.experience}</p>
-                    <p className="each-details bold">{doctor.clinic}</p>
-                    <p className="each-details">{doctor.fee}</p>
-                  </div>
-                </div>
-
-                <div className="book-btn-container">
-                  <p className="status">{doctor.status}</p>
-                  {/* <Link to={`/doctor/${doctor._id}`} className="link">
-                    <p className="btn btn-blue">View Profile</p>
-                  </Link> */}
-                  <button
-                    type="button"
-                    className="btn btn-blue"
-                    onClick={() => navigate(`/doctor/${doctor._id}`)}
-                  >
-                    View Profile
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="home-features">
+        <p className="align-center">
+          <MdOutlineVerifiedUser size={20} style={{ marginRight: "4px" }} />
+          100% verified doctors
+        </p>
+        <p className="align-center">
+          <FiClock size={20} style={{ marginRight: "4px" }} />
+          Book online anytime
+        </p>
+        <p className="align-center">
+          <FiPlusCircle size={20} style={{ marginRight: "4px" }} /> Wide range
+          of specialities
+        </p>
+        <p className="align-center">
+          <MdLockOutline size={20} style={{ marginRight: "4px" }} />
+          Secure & private
+        </p>
       </div>
-    );
-  };
 
-  const renderNoDoctorFound = () => (
-    <div className="container flex-cen">
-      <div className="not-found">
-        <h2>No doctor found... try with another keyword</h2>
-        <a href="/" className="btn btn-blue">
-          Home
+      <div className="home-btn-container">
+        <a href="/doctor" className="btn btn-blue align-center">
+          <FiSearch size={15} style={{ marginRight: "4px" }} />
+          Search for Doctors
         </a>
       </div>
     </div>
-  );
-
-  return (
-    <>
-      {isLoading ? (
-        <LoadingView />
-      ) : doctorsData ? (
-        renderAllDoctors()
-      ) : (
-        renderNoDoctorFound()
-      )}
-    </>
-  );
-};
+  </div>
+);
 
 export default Home;

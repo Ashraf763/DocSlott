@@ -9,6 +9,7 @@ import NotFound from "./components/NotFound";
 import MyAppointments from "./components/MyAppointments";
 
 import MotionWrapper from "./components/MotionWrapper";
+import Doctors from "./components/Doctors";
 
 function App() {
   return (
@@ -17,7 +18,15 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <MotionWrapper>
+                <Home />
+              </MotionWrapper>
+            }
+          />
+          <Route path="/doctor" element={<Doctors />} />
           <Route path="/doctor/:id" element={<DoctorProfile />} />
           <Route
             path="/book/:id"
